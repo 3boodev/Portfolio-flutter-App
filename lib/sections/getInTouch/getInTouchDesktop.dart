@@ -159,7 +159,7 @@ class _GetInTouchDesktopState extends State<GetInTouchDesktop> {
                                   isExpanded: true,
                                   onChanged: (value) {
                                     setState(() {
-                                      _projectType = value;
+                                      _projectType = value.toString();
                                     });
                                   },
                                   items: projectType
@@ -211,7 +211,7 @@ class _GetInTouchDesktopState extends State<GetInTouchDesktop> {
                                   isExpanded: true,
                                   onChanged: (value) {
                                     setState(() {
-                                      _database = value;
+                                      _database = value.toString();
                                     });
                                   },
                                   items: database
@@ -263,7 +263,7 @@ class _GetInTouchDesktopState extends State<GetInTouchDesktop> {
                                   isExpanded: true,
                                   onChanged: (value) {
                                     setState(() {
-                                      _estBudget = value;
+                                      _estBudget = value.toString();
                                     });
                                   },
                                   items: estBudget
@@ -340,7 +340,7 @@ class _GetInTouchDesktopState extends State<GetInTouchDesktop> {
                                   isExpanded: true,
                                   onChanged: (value) {
                                     setState(() {
-                                      _projectDuration = value;
+                                      _projectDuration = value.toString();
                                     });
                                   },
                                   items: projectDuration

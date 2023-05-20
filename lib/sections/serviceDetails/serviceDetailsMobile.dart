@@ -12,7 +12,7 @@ class ServiceDetailsMobile extends StatefulWidget {
   final String serviceTitle;
   final String serviceDesc;
 
-  const ServiceDetailsMobile({Key key, this.serviceTitle, this.serviceDesc})
+  const ServiceDetailsMobile({required Key key, required this.serviceTitle, required this.serviceDesc})
       : super(key: key);
 
   @override

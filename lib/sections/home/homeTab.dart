@@ -91,10 +91,7 @@ class HomeTab extends StatelessWidget {
                         ),
                         text: [
                           " Mobile Developer ",
-                          " Flutter Developer ",
-                          " UI/UX Developer ",
-                          "Game Developer",
-                          "Graphic Designer"
+                          " Flutter Developer "
                         ]),
                   ],
                 ),

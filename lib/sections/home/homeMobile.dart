@@ -94,8 +94,7 @@ class _HomeMobileState extends State<HomeMobile> {
                             fontWeight: FontWeight.w200),
                         text: [
                           " Mobile Developer ",
-                          " Flutter Developer ",
-                          " UI/UX Designer ",
+                          " Flutter Developer "
                         ]),
                   ],
                 ),

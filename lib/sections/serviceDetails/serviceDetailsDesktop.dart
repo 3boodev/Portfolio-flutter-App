@@ -15,7 +15,7 @@ class ServiceDetailsDesktop extends StatelessWidget {
   final String serviceTitle;
   final String details;
 
-  const ServiceDetailsDesktop({Key key, this.details, this.serviceTitle})
+  const ServiceDetailsDesktop({ required Key  key,required this.details,required this.serviceTitle})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class ServiceDetailsDesktop extends StatelessWidget {
           Expanded(
               child: ServiceDetailsDescription(
             serviceTitle: serviceTitle,
-            desc: details,
+            desc: details, key: key!,
           )),
           Expanded(child: ServicesShowCase()),
         ],
@@ -40,7 +40,7 @@ class ServiceDetailsDescription extends StatelessWidget {
   final String serviceTitle;
   final String desc;
 
-  const ServiceDetailsDescription({Key key, this.desc, this.serviceTitle})
+  const ServiceDetailsDescription({required Key key, required this.desc, required this.serviceTitle})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -180,7 +180,7 @@ class _ServicesShowCaseState extends State<ServicesShowCase> {
     Size screenSize = MediaQuery.of(context).size;
     return Container(
       decoration: BoxDecoration(
-          color: _themeProvider.lightTheme ? Colors.white : Colors.grey[900],
+          color: _themeProvider.lightTheme ? Colors.white : Colors.grey[900]!,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(25.0),
             bottomLeft: Radius.circular(25.0),

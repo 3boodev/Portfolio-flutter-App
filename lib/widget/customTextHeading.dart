@@ -5,9 +5,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class CustomSectionHeading extends StatelessWidget {
-  final String text;
+  final String? text;
 
-  const CustomSectionHeading({Key key, @required this.text}) : super(key: key);
+  const CustomSectionHeading({Key? key, @required this.text}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +25,9 @@ class CustomSectionHeading extends StatelessWidget {
 }
 
 class CustomSectionSubHeading extends StatelessWidget {
-  final String text;
+  final String? text;
 
-  const CustomSectionSubHeading({Key key, @required this.text})
+  const CustomSectionSubHeading({Key? key, this.text})
       : super(key: key);
 
   @override

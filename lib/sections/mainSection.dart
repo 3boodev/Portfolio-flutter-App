@@ -1,10 +1,7 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
 import 'package:folio/provider/themeProvider.dart';
 import 'package:provider/provider.dart';
 import 'package:universal_html/html.dart' as html;
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:folio/animations/entranceFader.dart';
 import 'package:folio/constants.dart';
@@ -51,12 +48,12 @@ class _MainPageState extends State<MainPage> {
       i == 0
           ? 0.0
           : i == 1
-              ? MediaQuery.of(context).size.height * 1.05
-              : i == 2
-                  ? MediaQuery.of(context).size.height * 1.98
-                  : i == 3
-                      ? MediaQuery.of(context).size.height * 2.9
-                      : MediaQuery.of(context).size.height * 4,
+          ? MediaQuery.of(context).size.height * 1.05
+          : i == 2
+          ? MediaQuery.of(context).size.height * 1.98
+          : i == 3
+          ? MediaQuery.of(context).size.height * 2.9
+          : MediaQuery.of(context).size.height * 4,
       duration: Duration(seconds: 1),
       curve: Curves.easeInOut,
     );
@@ -82,7 +79,7 @@ class _MainPageState extends State<MainPage> {
 
   @override
   void initState() {
-    _scrollController = _themeProviders.scroll;
+    _scrollController = _themeProviders.scrollController;
     _scrollController.addListener(() {
       if (_scrollController.position.userScrollDirection ==
           ScrollDirection.reverse) {
@@ -116,19 +113,20 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: _themeProv.lightTheme ? Colors.white : Colors.black,
-      appBar: MediaQuery.of(context).size.width < 760
+      appBar:
+      MediaQuery.of(context).size.width < 760
           ? AppBar(
-              iconTheme: IconThemeData(
-                  color: _themeProv.lightTheme ? Colors.black : Colors.white),
-              elevation: 0,
-              backgroundColor: Colors.transparent,
-              actions: [
-                NavBarLogo(),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.05,
-                )
-              ],
-            )
+        iconTheme: IconThemeData(
+            color: _themeProv.lightTheme ? Colors.black : Colors.white),
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        actions: [
+          NavBarLogo(),
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.05,
+          )
+        ],
+      )
           : _appBarTabDesktop(_themeProv),
       drawer: MediaQuery.of(context).size.width < 760
           ? _appBarMobile(_themeProv)
@@ -142,13 +140,13 @@ class _MainPageState extends State<MainPage> {
           ),
           _isScrollingDown
               ? Positioned(
-                  bottom: 90,
-                  right: 0,
-                  child: EntranceFader(
-                      offset: Offset(0, 20),
-                      child: ArrowOnTop(
-                        onPressed: () => _scroll(0),
-                      )))
+              bottom: 90,
+              right: 0,
+              child: EntranceFader(
+                  offset: Offset(0, 20),
+                  child: ArrowOnTop(
+                    onPressed: () => _scroll(0),
+                  )))
               : Container()
         ],
       ),
@@ -159,69 +157,69 @@ class _MainPageState extends State<MainPage> {
       String childText, int index, IconData icon, ThemeProvider themeProvider) {
     return MediaQuery.of(context).size.width > 760
         ? EntranceFader(
-            offset: Offset(0, -10),
-            delay: Duration(milliseconds: 100),
-            duration: Duration(milliseconds: 250),
-            child: Container(
-              padding: const EdgeInsets.all(8.0),
-              height: 60.0,
-              child: MaterialButton(
-                hoverColor: kPrimaryColor,
-                onPressed: () => _scroll(index),
-                child: Text(
-                  childText,
-                  style: TextStyle(
-                    color:
-                        themeProvider.lightTheme ? Colors.black : Colors.white,
-                  ),
-                ),
-              ),
+      offset: Offset(0, -10),
+      delay: Duration(milliseconds: 100),
+      duration: Duration(milliseconds: 250),
+      child: Container(
+        padding: const EdgeInsets.all(8.0),
+        height: 60.0,
+        child: MaterialButton(
+          hoverColor: kPrimaryColor,
+          onPressed: () => _scroll(index),
+          child: Text(
+            childText,
+            style: TextStyle(
+              color:
+              themeProvider.lightTheme ? Colors.black : Colors.white,
             ),
-          )
+          ),
+        ),
+      ),
+    )
         : Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: MaterialButton(
-              hoverColor: kPrimaryColor.withAlpha(70),
-              onPressed: () {
-                _scroll(index);
-                Navigator.pop(context);
-              },
-              child: ListTile(
-                leading: Icon(
-                  icon,
-                  color: kPrimaryColor,
-                ),
-                title: Text(childText,
-                    style: TextStyle(
-                      color: themeProvider.lightTheme
-                          ? Colors.black
-                          : Colors.white,
-                    )),
-              ),
-            ),
-          );
+      padding: const EdgeInsets.all(8.0),
+      child: MaterialButton(
+        hoverColor: kPrimaryColor.withAlpha(70),
+        onPressed: () {
+          _scroll(index);
+          Navigator.pop(context);
+        },
+        child: ListTile(
+          leading: Icon(
+            icon,
+            color: kPrimaryColor,
+          ),
+          title: Text(childText,
+              style: TextStyle(
+                color: themeProvider.lightTheme
+                    ? Colors.black
+                    : Colors.white,
+              )),
+        ),
+      ),
+    );
   }
 
-  Widget _appBarTabDesktop(ThemeProvider _themeProv) {
+  PreferredSizeWidget _appBarTabDesktop(ThemeProvider _themeProv) {
     return AppBar(
       elevation: 0.0,
       backgroundColor: _themeProv.lightTheme ? Colors.white : Colors.black,
       title: MediaQuery.of(context).size.width < 780
           ? EntranceFader(
-              duration: Duration(milliseconds: 250),
-              offset: Offset(0, -10),
-              delay: Duration(seconds: 3),
-              child: NavBarLogo(
-                height: 20.0,
-              ))
+          duration: Duration(milliseconds: 250),
+          offset: Offset(0, -10),
+          delay: Duration(seconds: 3),
+          child: NavBarLogo(
+            height: 20.0,
+          ))
           : EntranceFader(
-              offset: Offset(0, -10),
-              duration: Duration(milliseconds: 250),
-              delay: Duration(milliseconds: 100),
-              child: NavBarLogo(
-                height: MediaQuery.of(context).size.height * 0.035,
-              ),
-            ),
+        offset: Offset(0, -10),
+        duration: Duration(milliseconds: 250),
+        delay: Duration(milliseconds: 100),
+        child: NavBarLogo(
+          height: MediaQuery.of(context).size.height * 0.035,
+        ),
+      ),
       actions: [
         for (int i = 0; i < _sectionsName.length; i++)
           _appBarActions(_sectionsName[i], i, _sectionsIcons[i], _themeProv),
@@ -273,7 +271,7 @@ class _MainPageState extends State<MainPage> {
   Widget _appBarMobile(ThemeProvider theme) {
     return Drawer(
       child: Material(
-        color: theme.lightTheme ? Colors.white : Colors.grey[900],
+        color: theme.lightTheme ? Colors.white : Colors.grey[900]!,
         child: Padding(
           padding: const EdgeInsets.fromLTRB(0, 25.0, 0, 0),
           child: Column(
@@ -344,12 +342,12 @@ class _MainPageState extends State<MainPage> {
 }
 
 class SectionsBody extends StatelessWidget {
-  final ScrollController scrollController;
-  final int sectionsLength;
-  final Widget Function(int) sectionWidget;
+  final ScrollController? scrollController;
+  final int? sectionsLength;
+  final Widget? Function(int)? sectionWidget;
 
   const SectionsBody({
-    Key key,
+    Key? key,
     this.scrollController,
     this.sectionsLength,
     this.sectionWidget,
@@ -363,7 +361,7 @@ class SectionsBody extends StatelessWidget {
         // physics: !kIsWeb ? ScrollPhysics() : NeverScrollableScrollPhysics(),
         controller: scrollController,
         itemCount: sectionsLength,
-        itemBuilder: (context, index) => sectionWidget(index),
+        itemBuilder: (context, index) => sectionWidget!(index),
       ),
     );
   }

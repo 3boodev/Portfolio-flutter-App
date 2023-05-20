@@ -5,19 +5,18 @@ import 'package:folio/constants.dart';
 import 'package:folio/provider/themeProvider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class ServiceCard extends StatefulWidget {
-  final String serviceIcon;
-  final String serviceTitle;
-  final String serviceDescription;
-  final String serviceLink;
-  final double cardWidth;
-  final double cardHeight;
-  final Widget cardBack;
+  final String? serviceIcon;
+  final String? serviceTitle;
+  final String? serviceDescription;
+  final String? serviceLink;
+  final double? cardWidth;
+  final double? cardHeight;
+  final Widget? cardBack;
 
   const ServiceCard({
-    @required this.serviceIcon,
+      this.serviceIcon,
     this.serviceTitle,
     this.serviceDescription,
     this.serviceLink,
@@ -45,12 +44,12 @@ class _ServiceCardState extends State<ServiceCard> {
           setState(() {
             isHover = true;
           });
-          cardKey.currentState.toggleCard();
+          cardKey.currentState!.toggleCard();
         } else {
           setState(() {
             isHover = false;
           });
-          cardKey.currentState.toggleCard();
+          cardKey.currentState!.toggleCard();
         }
       },
       child: FlipCard(
@@ -62,7 +61,7 @@ class _ServiceCardState extends State<ServiceCard> {
             padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
             decoration: BoxDecoration(
               color:
-                  _themeProvider.lightTheme ? Colors.white : Colors.grey[900],
+                  _themeProvider.lightTheme ? Colors.white : Colors.grey[900]!,
               border: Border(
                 bottom: isHover
                     ? BorderSide(
@@ -93,7 +92,7 @@ class _ServiceCardState extends State<ServiceCard> {
           height: widget.cardHeight,
           padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
           decoration: BoxDecoration(
-            color: _themeProvider.lightTheme ? Colors.white : Colors.grey[900],
+            color: _themeProvider.lightTheme ? Colors.white : Colors.grey[900]!,
             border: Border(
               bottom: isHover
                   ? BorderSide(
@@ -122,14 +121,14 @@ class _ServiceCardState extends State<ServiceCard> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                widget.serviceIcon,
+                widget.serviceIcon!,
                 height: height * 0.125,
               ),
               SizedBox(
                 height: height * 0.02,
               ),
               Text(
-                widget.serviceTitle,
+                widget.serviceTitle!,
                 textAlign: TextAlign.center,
                 style: GoogleFonts.montserrat(
                   fontSize: height * 0.022,

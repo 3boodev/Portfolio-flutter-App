@@ -52,7 +52,7 @@ class AboutMobile extends StatelessWidget {
             height: height * 0.028,
           ),
           Text(
-            "I'm Abdullah Abdelsamad, a Mobile developer, and UI-UX designer.",
+            "I'm Abdullah Abdelsamad, \nSoftWare Engineer as Mobile Developer.",
             style: GoogleFonts.montserrat(
               fontSize: height * 0.022,
               fontWeight: FontWeight.w400,
@@ -63,7 +63,7 @@ class AboutMobile extends StatelessWidget {
             height: height * 0.02,
           ),
           Text(
-            "I'm Gratuated from Faculty of Computers and Artifical Inteligence  enrolled in BeniSufe University, BeniSufe. I have been developing mobile apps for over 3 years now. I have worked in teams for various startups and helped them in launching their prototypes and got valuable learning experience. I'm an active Institute of Electrical and Electronics Engineers Student Branch(IEEE) Member.",
+            "I have been working at ACME-Saico Software Company for almost a year as a Software Engineer and Mobile Applications Developer.\nI have been developing mobile apps for over 3 years now. \nI have worked in teams for various Track and Have valuable experience.",
             style: GoogleFonts.montserrat(
               fontSize: height * 0.018,
               color: Colors.grey[500],
@@ -76,7 +76,7 @@ class AboutMobile extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               border: Border(
-                bottom: BorderSide(color: Colors.grey[900], width: 1.0),
+                bottom: BorderSide(color: Colors.grey[900]!, width: 1.0),
               ),
             ),
           ),
@@ -113,7 +113,7 @@ class AboutMobile extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               border: Border(
-                bottom: BorderSide(color: Colors.grey[900], width: 1.0),
+                bottom: BorderSide(color: Colors.grey[900]!, width: 1.0),
               ),
             ),
           ),
@@ -154,7 +154,7 @@ class AboutMobile extends StatelessWidget {
                   width: width * 0.2,
                   decoration: BoxDecoration(
                     border: Border(
-                      bottom: BorderSide(color: Colors.grey[900], width: 2.0),
+                      bottom: BorderSide(color: Colors.grey[900]!, width: 2.0),
                     ),
                   ),
                 ),

@@ -112,8 +112,7 @@ class HomeDesktop extends StatelessWidget {
                           ),
                           text: [
                             " Mobile Developer ",
-                            " Flutter Developer ",
-                            " UI/UX Developer "
+                            " Flutter Developer "
                           ]),
                     ],
                   ),

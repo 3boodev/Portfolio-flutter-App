@@ -3,8 +3,8 @@ import 'package:folio/provider/themeProvider.dart';
 import 'package:provider/provider.dart';
 
 class NavBarLogo extends StatelessWidget {
-  final double height;
-  NavBarLogo({this.height});
+  final double? height;
+  NavBarLogo({  this.height});
   @override
   Widget build(BuildContext context) {
     final _themeProvider = Provider.of<ThemeProvider>(context);

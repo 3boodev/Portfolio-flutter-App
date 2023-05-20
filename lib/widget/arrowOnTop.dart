@@ -4,9 +4,9 @@ import 'package:folio/provider/themeProvider.dart';
 import 'package:provider/provider.dart';
 
 class ArrowOnTop extends StatefulWidget {
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
-  const ArrowOnTop({Key key, this.onPressed}) : super(key: key);
+  const ArrowOnTop({Key? key, this.onPressed}) : super(key: key);
 
   @override
   _ArrowOnTopState createState() => _ArrowOnTopState();
@@ -38,7 +38,7 @@ class _ArrowOnTopState extends State<ArrowOnTop> {
             child: Container(
               decoration: BoxDecoration(
                 color:
-                    _themeProvider.lightTheme ? Colors.grey[200] : Colors.grey[900],
+                    _themeProvider.lightTheme ? Colors.grey[200] : Colors.grey[900]!,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(8.0),
                   bottomLeft: Radius.circular(8.0),

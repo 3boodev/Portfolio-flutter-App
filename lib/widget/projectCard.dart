@@ -7,18 +7,18 @@ import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ProjectCard extends StatefulWidget {
-  final String projectIcon;
-  final IconData projectIconData;
-  final String projectTitle;
-  final String projectDescription;
-  final String projectLink;
-  final double cardWidth;
-  final double cardHeight;
-  final String backImage;
-  final Widget bottomWidget;
+  final String? projectIcon;
+  final IconData? projectIconData;
+  final String? projectTitle;
+  final String? projectDescription;
+  final String? projectLink;
+  final double? cardWidth;
+  final double? cardHeight;
+  final String? backImage;
+  final Widget? bottomWidget;
 
   const ProjectCard(
-      {Key key,
+      {Key? key,
       this.backImage,
       this.bottomWidget,
       this.projectIcon,
@@ -42,7 +42,7 @@ class _ProjectCardState extends State<ProjectCard> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return InkWell(
-      onTap: () => launch(widget.projectLink),
+      onTap: () => launch(widget.projectLink!),
       onHover: (isHovering) {
         if (isHovering) {
           setState(() {
@@ -59,7 +59,7 @@ class _ProjectCardState extends State<ProjectCard> {
         height: widget.cardHeight,
         padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
         decoration: BoxDecoration(
-          color: _themeProvider.lightTheme ? Colors.white : Colors.grey[900],
+          color: _themeProvider.lightTheme ? Colors.white : Colors.grey[900]!,
           border: Border(
             bottom: isHover
                 ? BorderSide(
@@ -68,7 +68,7 @@ class _ProjectCardState extends State<ProjectCard> {
                   )
                 : BorderSide(
                     color:
-                        _themeProvider.lightTheme ? Colors.white : Colors.grey[900],
+                        _themeProvider.lightTheme ? Colors.white : Colors.grey[900]!,
                   ),
           ),
           boxShadow: isHover
@@ -96,21 +96,21 @@ class _ProjectCardState extends State<ProjectCard> {
                 widget.projectIcon != null
                     ? (width > 1135 || width < 950)
                         ? Image.asset(
-                            widget.projectIcon,
+                            widget.projectIcon!,
                             height: height * 0.05,
                           )
                         : Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Image.asset(
-                                widget.projectIcon,
+                                widget.projectIcon!,
                                 height: height * 0.03,
                               ),
                               SizedBox(
                                 width: width * 0.01,
                               ),
                               Text(
-                                widget.projectTitle,
+                                widget.projectTitle!,
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.montserrat(
                                   fontSize: height * 0.015,
@@ -146,7 +146,7 @@ class _ProjectCardState extends State<ProjectCard> {
                           fontWeight: FontWeight.w400,
                           color: _themeProvider.lightTheme
                               ? Colors.white
-                              : Colors.grey[900],
+                              : Colors.grey[900]!,
                         ),
                       )
                     : Container(),
@@ -177,7 +177,7 @@ class _ProjectCardState extends State<ProjectCard> {
               child: FittedBox(
                 fit: BoxFit.fill,
                 child: widget.backImage != null
-                    ? Image.asset(widget.backImage)
+                    ? Image.asset(widget.backImage!)
                     : Container(),
               ),
             ),

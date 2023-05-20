@@ -1,6 +1,5 @@
 import 'package:flip_card/flip_card.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+ import 'package:flutter/material.dart';
 import 'package:folio/animations/bottomAnimation.dart';
 import 'package:folio/provider/themeProvider.dart';
 import 'package:folio/sections/serviceDetails/serviceDetails.dart';
@@ -104,20 +103,20 @@ class _ServiceDesktopState extends State<ServiceDesktop> {
 
 class ServiceCardBackWidget extends StatelessWidget {
   const ServiceCardBackWidget(
-      {Key key,
-      @required ThemeProvider themeProvider,
-      @required this.height,
-      @required this.width,
+      {Key? key,
+       required ThemeProvider themeProvider,
+        this.height,
+        this.width,
       this.serviceDesc,
       this.serviceTitle})
       : _themeProvider = themeProvider,
         super(key: key);
 
-  final ThemeProvider _themeProvider;
-  final double height;
-  final double width;
-  final String serviceDesc;
-  final String serviceTitle;
+  final ThemeProvider? _themeProvider;
+  final double? height;
+  final double? width;
+  final String? serviceDesc;
+  final String? serviceTitle;
 
   @override
   Widget build(BuildContext context) {
@@ -128,11 +127,11 @@ class ServiceCardBackWidget extends StatelessWidget {
           AdaptiveText(
             serviceDesc,
             style: GoogleFonts.montserrat(
-              color: _themeProvider.lightTheme ? Colors.black : Colors.white,
-              fontSize: height * 0.015,
+              color: _themeProvider!.lightTheme ? Colors.black : Colors.white,
+              fontSize: height! * 0.015,
               letterSpacing: 2.0,
               fontWeight: FontWeight.w400,
-              height: width < 900 ? 1.5 : 1.8,
+              height: width! < 900 ? 1.5 : 1.8,
             ),
           ),
           const SizedBox(height: 25.0),
@@ -160,7 +159,7 @@ class ServiceCardBackWidget extends StatelessWidget {
               "Details",
               style: GoogleFonts.montserrat(
                 fontWeight: FontWeight.w300,
-                color: _themeProvider.lightTheme ? Colors.black : Colors.white,
+                color: _themeProvider!.lightTheme ? Colors.black : Colors.white,
               ),
             ),
           ),
@@ -169,7 +168,7 @@ class ServiceCardBackWidget extends StatelessWidget {
             width: 250.0,
             height: 0.5,
             color:
-                _themeProvider.lightTheme ? Colors.grey[400] : Colors.grey[100],
+                _themeProvider!.lightTheme ? Colors.grey[400] : Colors.grey[100],
           ),
           const SizedBox(height: 10.0),
           SizedBox(
@@ -180,14 +179,14 @@ class ServiceCardBackWidget extends StatelessWidget {
               onPressed: () => showDialog(
                   context: context,
                   builder: (contecxt) => AlertDialog(
-                        backgroundColor: _themeProvider.lightTheme
+                        backgroundColor: _themeProvider!.lightTheme
                             ? Colors.white
-                            : Colors.grey[900],
+                            : Colors.grey[900]!,
                         title: AdaptiveText(
                           "Hire Me!",
                           style: TextStyle(
                               fontSize: 32.0,
-                              color: _themeProvider.lightTheme
+                              color: _themeProvider!.lightTheme
                                   ? Colors.black
                                   : Colors.white),
                         ),
